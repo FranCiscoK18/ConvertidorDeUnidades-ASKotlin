@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Android Studio
+.idea/
+*.iml
+
+# Local config
+local.properties
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kotlin / Java generated
+*.class
+
+# APKs / outputs
+*.apk
+*.ap_
+*.aab
+
+# Keystore files - no subir claves privadas
+*.jks
+*.keystore
