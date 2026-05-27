@@ -1,3 +1,6 @@
+import com.example.convertidordeunidades.ConversionResult
+import com.example.convertidordeunidades.UnitOption
+
 val temperatureUnits = listOf(
     UnitOption("C", "Celsius", "Celsius", 1.0),
     UnitOption("F", "Fahrenheit", "Fahrenheit", 1.0),

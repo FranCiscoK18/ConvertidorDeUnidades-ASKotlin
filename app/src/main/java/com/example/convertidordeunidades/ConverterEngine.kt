@@ -1,3 +1,8 @@
+import com.example.convertidordeunidades.ConversionResult
+import com.example.convertidordeunidades.UnitCategory
+import com.example.convertidordeunidades.UnitOption
+import com.example.convertidordeunidades.unitsFor
+
 fun convert(
     category: UnitCategory,
     amount: Double,

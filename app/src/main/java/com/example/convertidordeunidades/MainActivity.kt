@@ -12,14 +12,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.convertidordeunidades.CategoryGrid
+import com.example.convertidordeunidades.ConversionResult
+import com.example.convertidordeunidades.DarkBackground
+import com.example.convertidordeunidades.DarkCard
+import com.example.convertidordeunidades.HeaderSection
+import com.example.convertidordeunidades.SoftBackground
+import com.example.convertidordeunidades.SoftCard
+import com.example.convertidordeunidades.TextDark
+import com.example.convertidordeunidades.TextMuted
+import com.example.convertidordeunidades.UniConverterTheme
+import com.example.convertidordeunidades.UnitCategory
+import com.example.convertidordeunidades.defaultFromUnit
+import com.example.convertidordeunidades.defaultToUnit
+import com.example.convertidordeunidades.formatNumber
+import com.example.convertidordeunidades.parseAmount
+import com.example.convertidordeunidades.resultText
+import com.example.convertidordeunidades.unitsFor
+import com.example.uniconverter.ConverterPanel
+import convert
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

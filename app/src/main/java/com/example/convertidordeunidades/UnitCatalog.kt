@@ -1,5 +1,8 @@
 package com.example.convertidordeunidades
 
+import currencyUnits
+import temperatureUnits
+
 fun unitsFor(category: UnitCategory): List<UnitOption> {
     return when (category) {
         UnitCategory.LENGTH -> lengthUnits
