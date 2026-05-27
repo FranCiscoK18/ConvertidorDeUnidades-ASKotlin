@@ -1,4 +1,4 @@
-package com.example.convertidordeunidades
+package com.example.uniconverter
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -6,9 +6,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.OutlinedTextField
@@ -62,7 +65,22 @@ fun ConverterPanel(
                 onUnitChange = onFromUnitChange
             )
 
-            Spacer(modifier = Modifier.height(22.dp))
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                onClick = onSwap,
+                colors = ButtonDefaults.buttonColors(containerColor = Purple),
+                shape = RoundedCornerShape(50),
+                modifier = Modifier.size(58.dp)
+            ) {
+                Text(
+                    text = "↑↓",
+                    fontSize = 22.sp,
+                    color = Color.White
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
 
             UnitInputBox(
                 title = if (isEnglish) "TO UNIT" else "A UNIDAD",
