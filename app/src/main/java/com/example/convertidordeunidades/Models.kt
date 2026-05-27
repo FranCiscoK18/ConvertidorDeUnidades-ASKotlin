@@ -1,4 +1,4 @@
-package com.example.uniconverter
+package com.example.convertidordeunidades
 
 enum class UnitCategory(
     val titleEs: String,
