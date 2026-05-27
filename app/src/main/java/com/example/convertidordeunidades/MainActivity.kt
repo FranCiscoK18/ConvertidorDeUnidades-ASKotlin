@@ -1,3 +1,5 @@
+package com.example.convertidordeunidades
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
@@ -41,6 +44,9 @@ fun UniConverterApp() {
     var fromValue by remember { mutableStateOf("") }
     var fromUnit by remember { mutableStateOf(defaultFromUnit(UnitCategory.LENGTH)) }
     var toUnit by remember { mutableStateOf(defaultToUnit(UnitCategory.LENGTH)) }
+
+    val favorites = remember { mutableStateListOf<ConversionRecord>() }
+    val history = remember { mutableStateListOf<ConversionRecord>() }
 
     val units = unitsFor(selectedCategory)
     val amount = parseAmount(fromValue)
@@ -116,6 +122,32 @@ fun UniConverterApp() {
 
                     if (conversionResult is ConversionResult.Success) {
                         fromValue = formatNumber(conversionResult.convertedValue)
+                    }
+                }
+            )
+
+            Spacer(modifier = Modifier.height(22.dp))
+
+            FavoritesSection(
+                isEnglish = isEnglish,
+                cardColor = cardColor,
+                textColor = textColor,
+                mutedColor = mutedColor,
+                favorites = favorites,
+                history = history,
+                onAddFavorite = {
+                    if (amount != null && conversionResult is ConversionResult.Success) {
+                        val record = createConversionRecord(
+                            category = selectedCategory,
+                            isEnglish = isEnglish,
+                            fromUnit = fromUnit,
+                            toUnit = toUnit,
+                            inputValue = amount,
+                            outputValue = conversionResult.convertedValue
+                        )
+
+                        favorites.add(0, record)
+                        history.add(0, record)
                     }
                 }
             )
